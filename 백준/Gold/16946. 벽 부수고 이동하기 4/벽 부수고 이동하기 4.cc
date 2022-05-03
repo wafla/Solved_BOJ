@@ -35,7 +35,7 @@ int main()
 				int num = 0;
 				queue<pair<int, int>> B;
 				B.push({ i,j });
-                v[i][j]=z;
+                		v[i][j]=z;
 				while (!B.empty())
 				{
 					auto cur = B.front();
@@ -47,10 +47,10 @@ int main()
 						int ny = cur.y + dy[k];
 						if (nx >= 0 && nx < n && ny >= 0 && ny < m)
 							if (arr[nx][ny] == 0 && v[nx][ny] == 0)
-                            {
-                                v[nx][ny]=z;
-                                B.push({ nx,ny });
-                            }
+                           				 {
+                                				v[nx][ny]=z;
+                                				B.push({ nx,ny });
+                            				}
 					}
 				}
 				value[z] = num;
