@@ -10,7 +10,7 @@
 #define y second
 using namespace std;
 int R, C, M, ans = 0;
-int arr[101][101] = { 0 };//칸에 몇마리
+int arr[101][101] = { 0 };//상어 유무
 int sz[101][101] = { 0 };//크기
 int speed[101][101] = { 0 };
 int dir[101][101] = { 0 };
