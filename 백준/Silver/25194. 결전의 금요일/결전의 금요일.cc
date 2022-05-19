@@ -14,21 +14,6 @@
 using namespace std;
 vector<int> arr;
 int n;
-void dfs(int idx, long long sum)
-{
-	if (sum % 7 == 4)
-	{
-		if (sum == 0)
-			return;
-		cout << "YES";
-		exit(0);
-	}
-	if (idx + 1 < n)
-	{
-		dfs(idx + 1, sum + arr[idx + 1]);
-		dfs(idx + 1, sum);
-	}
-}
 int main()
 {
 	ios::sync_with_stdio(NULL);
@@ -53,6 +38,5 @@ int main()
 								cout << "YES";
 								return 0;
 							}
-	//dfs(-1, 0);
 	cout << "NO";
 }
