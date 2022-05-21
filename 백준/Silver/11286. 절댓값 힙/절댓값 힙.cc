@@ -1,14 +1,5 @@
 #include <iostream>
-#include <vector>
 #include <queue>
-#include <algorithm>
-#include <string>
-#include <math.h>
-#include <map>
-#include <stack>
-#include <memory.h>
-#include <deque>
-#include <set>
 #define X first
 #define Y second
 using namespace std;
