@@ -29,10 +29,8 @@ int main()
 	for (int i = 0;i < a.size() - 1;i++)
 	{
 		string tmp1, tmp2;
-		tmp1 += a[i];
-		tmp1 += a[i + 1];
-		tmp2 += a[i + 1];
-		tmp2 += a[i];
+		tmp1 = a[i] + a[i+1];
+		tmp2 = a[i + 1] + a[i];
 		if (tmp1 < tmp2)
 		{
 			string tmp = a[i + 1];
