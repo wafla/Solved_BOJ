@@ -16,7 +16,7 @@ int main()
 {
 	ios::sync_with_stdio(NULL);
 	cin.tie(NULL), cout.tie(NULL);
-	int maxx = 0, x = 1, y = 1;
+	int maxx = -1, x, y;
 	for (int i = 0;i < 9;i++)
 	{
 		for (int j = 0;j < 9;j++)
