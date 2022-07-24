@@ -18,7 +18,7 @@ using namespace std;
 int parent[100001] = { 0 };
 int n, k;
 queue<pair<int, int>> Q, q;
-int v[2001][2001]; //카운트 문명
+int v[2001][2001];
 int dx[4] = { 1,-1,0,0 }, dy[4] = { 0,0,1,-1 };
 int cnt = 0;
 int year = 0;
