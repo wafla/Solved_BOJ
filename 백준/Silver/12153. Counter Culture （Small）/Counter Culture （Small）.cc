@@ -18,20 +18,11 @@ using namespace std;
 bool v[1000001] = { 0 };
 int cal(int x)
 {
-	int cnt = 0;
-	int tmp = x;
-	while (tmp)
-	{
-		tmp /= 10;
-		cnt++;
-	}
-	int num = 0;
-	while (cnt--)
-	{
-		num += x % 10 * pow(10, cnt);
-		x /= 10;
-	}
-	return num;
+	string s = to_string(x);
+	while (s[s.size() - 1] == '0')
+		s.pop_back();
+	reverse(s.begin(), s.end());
+	return stoi(s);
 }
 void bfs(int t, int n)
 {
