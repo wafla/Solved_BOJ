@@ -18,7 +18,7 @@ using namespace std;
 int arr[1001][1001] = { 0 }, n;
 bool v[1001][1001] = { 0 };
 int dx[4] = { 1,-1,0,0 }, dy[4] = { 0,0,1,-1 };
-typedef pair<int, pair<int, int>> T; //우선순위, 최대값, 좌표
+typedef pair<int, pair<int, int>> T; //최대값, 좌표
 void bfs()
 {
 	priority_queue<T, vector<T>, greater<T>> Q;
