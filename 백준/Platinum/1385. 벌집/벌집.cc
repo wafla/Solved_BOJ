@@ -27,56 +27,15 @@ struct T {
 void make()
 {
     int num = 1;
-    int x = 750, y = 750;
-    //1 ~ 7 만들기
-    arr[x][y] = 1; 
-    arr[x - 1][y] = 2;
-    arr[x][y + 1] = 3;
-    arr[x + 1][y + 1] = 4;
-    arr[x + 1][y] = 5;
-    arr[x][y - 1] = 6;
-    arr[x - 1][y - 1] = 7;
-    if (a == 1){
-        sx = x;
-        sy = y;
-    }
-    else if (a == 2){
-        sx = x - 1;
-        sy = y;
-    }
-    else if (a == 3){
-        sx = x;
-        sy = y + 1;
-    }
-    else if (a == 4){
-        sx = x + 1;
-        sy = y + 1;
-    }
-    else if (a == 5){
-        sx = x + 1;
-        sy = y;
-    }
-    else if (a == 6){
-        sx = x;
-        sy = y - 1;
-    }
-    else if (a == 7) {
-        sx = x - 1;
-        sy = y - 1;
-    }
-    else if (a == 8) {
-        sx = 748;
-        sy = 749;
-    }
-    x = 749, y = 749;
-    num = 8;
-    int k = 2;
+    int x = 751, y = 750;
+    arr[x][y] = num++; 
+    int k = 1;
     while (1)
     {
         if (num > 1000000)
             break;
         x--;
-        if (num == a && a != 8)
+        if (num == a)
         {
             sx = x;
             sy = y;
