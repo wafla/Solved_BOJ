@@ -63,13 +63,6 @@ void solve(int dir, int i, int j, int M)
             if (tmp[M][i][j] == 0)
                 tmp[M][i][j] = -1;
         }
-        /*for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-                cout << tmp[i][j] << " ";
-            cout << '\n';
-        }
-        cout << '\n';*/
     }
     else if (dir == 3) // 아래쪽
     {
