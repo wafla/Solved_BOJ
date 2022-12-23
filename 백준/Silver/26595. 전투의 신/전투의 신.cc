@@ -23,10 +23,10 @@ int main()
 	cin >> n >> a >> x >> b >> y;
 	ll cnt_a, cnt_b;
 	ll ans_a = 0, ans_b = 0, maxx = 0;
-	for (ll i = n; i >= 0; i--)
+	for (ll i = 0; i <= n; i++)
 	{
-		cnt_a = i / x;
 		cnt_b = (n - i) / y;
+		cnt_a = i / x;
 		ll sum = a * cnt_a + b * cnt_b;
 		if (maxx < sum)
 		{
