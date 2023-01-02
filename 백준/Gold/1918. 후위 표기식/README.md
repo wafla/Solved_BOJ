@@ -1,4 +1,4 @@
-# [Gold III] 후위 표기식 - 1918 
+# [Gold II] 후위 표기식 - 1918 
 
 [문제 링크](https://www.acmicpc.net/problem/1918) 
 
