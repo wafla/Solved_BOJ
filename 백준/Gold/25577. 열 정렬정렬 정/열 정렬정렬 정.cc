@@ -45,10 +45,7 @@ int main()
 		if (!visit[M[v[i]]])
 		{
 			int x = dfs(M[v[i]]);
-			if (x == 1)
-				continue;
-			else
-				sum += x - 1;
+			sum += x - 1;
 		}
 	}
 	cout << sum << '\n';
