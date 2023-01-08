@@ -22,21 +22,18 @@ int main()
 	int n;
 	cin >> n;
 	vector<int> v(n);
-	int ans = 0, cnt;
+	int ans = 0, cnt = 0;
 	for (int i = 0; i < n; i++)
 		cin >> v[i];
-	for (int i = 0; i < n; i++)
+	int idx = 0;
+	for (int i = 1; i < n; i++)
 	{
-		cnt = 0;
-		for (int j = i + 1; j < n; j++)
+		if (v[idx] > v[i])
+			cnt++;
+		else
 		{
-			if (v[i] > v[j])
-				cnt++;
-			else
-			{
-				i = j - 1;
-				break;
-			}
+			cnt = 0;
+			idx = i;
 		}
 		ans = max(ans, cnt);
 	}
