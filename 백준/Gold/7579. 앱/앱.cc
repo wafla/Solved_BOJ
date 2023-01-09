@@ -15,14 +15,14 @@
 #define MOD 1000000007
 #define ll long long
 using namespace std;
-ll dp[101][10001] = { 0 };
+int dp[101][10001] = { 0 };
 int main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL), cout.tie(NULL);
-	ll n, m, sum = 0;
+	int n, m, sum = 0;
 	cin >> n >> m;
-	vector<pair<ll, ll>> v(n+1);
+	vector<pair<int, int>> v(n+1);
 	for (int i = 1; i <= n; i++)
 		cin >> v[i].X;
 	for (int i = 1; i <= n; i++)
