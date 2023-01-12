@@ -23,16 +23,9 @@ int main()
 	cin.tie(NULL), cout.tie(NULL);
 	int r, c;
 	cin >> r >> c;
-	vector<pair<int, int>> s, w;
 	for (int i = 0; i < r; i++)
 		for (int j = 0; j < c; j++)
-		{
 			cin >> arr[i][j];
-			if (arr[i][j] == 'S')
-				s.push_back({ i,j });
-			else if (arr[i][j] == 'W')
-				w.push_back({ i,j });
-		}
 	for (int i = 0; i < r; i++)
 	{
 		for (int j = 0; j < c; j++)
