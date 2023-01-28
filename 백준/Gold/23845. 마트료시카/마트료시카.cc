@@ -21,15 +21,15 @@ int main()
 	cin.tie(NULL), cout.tie(NULL);
 	int n;
 	cin >> n;
-	vector<ll> v(n);
 	map<ll, ll> M;
 	set<ll> S;
 	ll ans = 0;
 	for (int i = 0; i < n; i++)
 	{
-		cin >> v[i];
-		M[v[i]]++;
-		S.insert(v[i]);
+        ll x;
+		cin >> x;
+		M[x]++;
+		S.insert(x);
 	}
 	while (!S.empty())
 	{
