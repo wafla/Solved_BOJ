@@ -20,12 +20,7 @@ int n;
 vector<pair<ll,ll>> tree;
 pair<ll,ll> merge(pair<ll,ll> left, pair<ll,ll> right)
 {
-	if (left.X == right.X)
-		return min(left, right);
-	else if (left.X < right.X)
-		return { left.X, left.Y };
-	else if (left.X > right.X)
-		return { right.X, right.Y };
+	return min(left, right);
 }
 pair<ll,ll> buildRec(const ll arr[], ll node, ll nodeLeft, ll nodeRight)
 {
