@@ -66,6 +66,11 @@ int main()
 		cin >> n >> m;
 		cin >> a >> b;
 		cin >> i >> j;
+		if ((a + b) % 2 == (i + j) % 2)
+		{
+			cout << -1 << '\n';
+			continue;
+		}
 		a--;
 		b--;
 		i--;
