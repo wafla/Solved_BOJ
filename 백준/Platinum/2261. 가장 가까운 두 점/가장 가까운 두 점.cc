@@ -40,10 +40,10 @@ int solve(int l, int r)
 
 	int line = (v[mid].X + v[mid + 1].X) / 2;
 	for (int i = l; i <= r; i++)
-		if (line - v[i].X < ret)
-			p.push_back({v[i].Y, v[i].X}); // 다음번엔 Y축 기준으로 최소값 구함
+		if ((line - v[i].X)* (line - v[i].X) < ret)
+			p.push_back({ v[i].Y, v[i].X }); // 다음번엔 Y축 기준으로 최소값 구함
 	sort(p.begin(), p.end());
-	
+
 	for (int i = 0; i < p.size(); i++)
 	{
 		for (int j = i + 1; j < p.size(); j++)
@@ -70,4 +70,3 @@ int main()
 	sort(v.begin(), v.end());
 	cout << solve(0, n - 1) << '\n';
 }
-// 참고 : https://hackids.tistory.com/61
