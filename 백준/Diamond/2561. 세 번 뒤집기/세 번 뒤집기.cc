@@ -73,12 +73,6 @@ void solve(int cnt, int ans[3][2], int tmp[1001], int size)
 		return;
 	if (g_num - 1 >= size && cnt > 1)
 		return;
-	/*for (int i = 1; i <= n; i++)
-		cout << tmp[i] << " ";
-	cout << '\n';
-	for (int i = 0; i < g_num; i++)
-		cout << group[i][0] << " " << group[i][1] << '\n';
-	cout << '\n';*/
 	for (int i = 0; i < g_num; i++)
 	{
 		for (int j = i; j < g_num; j++)
@@ -140,32 +134,6 @@ int main()
 				arr[l] = arr[r];
 				arr[r] = temp;
 				r--;
-			}
-			if (i != j)
-			{
-				l = v[i].X, r = v[j].X;
-				for (; l <= r; l++)
-				{
-					int temp = arr[l];
-					arr[l] = arr[r];
-					arr[r] = temp;
-					r--;
-				}
-				pair<int, int> v2 = check(arr);
-				if (v2.X <= v.size())
-				{
-					tmp[0][0] = v[i].X;
-					tmp[0][1] = v[j].X;
-					solve(1, tmp, arr, v.size());
-				}
-				l = v[i].X, r = v[j].X;
-				for (; l <= r; l++)
-				{
-					int temp = arr[l];
-					arr[l] = arr[r];
-					arr[r] = temp;
-					r--;
-				}
 			}
 		}
 	}
