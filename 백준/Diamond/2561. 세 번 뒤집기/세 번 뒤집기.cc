@@ -71,8 +71,6 @@ void solve(int cnt, int ans[3][2], int tmp[1001], int size)
 	}
 	if (cnt == 3)
 		return;
-	if (g_num - 1 >= size && cnt > 1)
-		return;
 	for (int i = 0; i < g_num; i++)
 	{
 		for (int j = i; j < g_num; j++)
@@ -121,12 +119,9 @@ int main()
 				r--;
 			}
 			pair<int, int> v2 = check(arr);
-			if (v2.X <= v.size())
-			{
-				tmp[0][0] = v[i].X;
-				tmp[0][1] = v[j].Y;
-				solve(1, tmp, arr, v.size());
-			}
+			tmp[0][0] = v[i].X;
+			tmp[0][1] = v[j].Y;
+			solve(1, tmp, arr, v.size());
 			l = v[i].X, r = v[j].Y;
 			for (; l <= r; l++)
 			{
@@ -138,4 +133,4 @@ int main()
 		}
 	}
 }
-// 정답 코드가 아닙니다. 뒤집을 때 조건이 더 필요해요.
+// 정답 코드가 아닙니다. 컷팅, 뒤집을 때 조건이 더 필요해요.
