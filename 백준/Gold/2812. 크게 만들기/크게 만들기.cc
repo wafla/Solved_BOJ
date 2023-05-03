@@ -42,9 +42,8 @@ int main()
 	}
 	while (idx < s.size())
 		dq.push_back(s[idx++]);
-	if (dq.size() > n - t)
-		while (dq.size() > n - t)
-			dq.pop_back();
+	while (dq.size() > n - t)
+		dq.pop_back();
 	for (auto i : dq)
 		cout << char(i);
 	cout << '\n';
