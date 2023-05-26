@@ -18,7 +18,7 @@
 #define pi pair<ll, ll>
 using namespace std;
 int n, m;
-ll arr[1001][1001] = { 0 }, value[1001][1001] = { 0 }, ans[1001][1001] = { 0 }, height[1001][1001] = { 0 };
+ll arr[1001][1001] = { 0 }, value[1001][1001] = { 0 }, ans[1001][1001] = { 0 };
 int dx[4] = { 1,-1,0,0 }, dy[4] = { 0,0,1,-1 };
 pi parent[1001][1001];
 map<int, vector<pi>> v;
@@ -37,12 +37,10 @@ void Union(pi a, pi b)
 	if (a == b)
 		return;
 	
-	if (height[a.X][a.Y] < height[b.X][b.Y])
+	if (arr[a.X][a.Y] < arr[b.X][b.Y])
 		swap(a, b);
 	parent[b.X][b.Y] = a;
 	
-	if (height[a.X][a.Y] == height[b.X][b.Y])
-		height[a.X][a.Y]++;
 	value[a.X][a.Y] += value[b.X][b.Y];
 }
 int main()
