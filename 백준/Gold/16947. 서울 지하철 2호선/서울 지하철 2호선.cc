@@ -72,16 +72,11 @@ void bfs(int idx)
 		{
 			if (!visit[v[cur.X][i]])
 			{
+				visit[v[cur.X][i]] = 1;
 				if (check[v[cur.X][i]])
-				{
-					visit[v[cur.X][i]] = 1;
 					Q.push({ v[cur.X][i],0 });
-				}
 				else
-				{
-					visit[v[cur.X][i]] = 1;
 					Q.push({ v[cur.X][i], cur.Y + 1 });
-				}
 			}
 		}
 	}
@@ -100,13 +95,6 @@ int main()
 		v[y].push_back(x);
 	}
 	solve(1, 1);
-	if (t == -1)
-	{
-		for (int i = 0; i < n; i++)
-			cout << 0 << " ";
-		cout << '\n';
-		return 0;
-	}
 	memset(visit, 0, sizeof(visit));
 	dfs(t, t);
 	memset(visit, 0, sizeof(visit));
