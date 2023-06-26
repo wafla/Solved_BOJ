@@ -21,17 +21,14 @@ int L;
 string s;
 int getPI()
 {
-	int j = 0, ret = 0;
+	int j = 0;
 	vector<int> PI(L);
 	for (int i = 1; i < L; i++)
 	{
 		while (j > 0 && s[i] != s[j])
 			j = PI[j - 1];
 		if (s[i] == s[j])
-		{
 			PI[i] = ++j;
-			ret = max(PI[i], ret);
-		}
 	}
 	return PI[L-1];
 }
