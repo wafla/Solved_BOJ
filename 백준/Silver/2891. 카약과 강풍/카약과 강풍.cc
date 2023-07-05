@@ -21,7 +21,8 @@ int main()
     cin.tie(NULL), cout.tie(NULL);
     int n, x, y;
     cin >> n >> x >> y;
-    set<int> S;
+    set<int> S, X;
+    vector<int> v;
     for (int i = 0; i < x; i++)
     {
         int num;
@@ -32,15 +33,33 @@ int main()
     {
         int num;
         cin >> num;
-        if (S.count(num))
-        {
-            S.erase(num);
-            continue;
-        }
-        if (S.count(num - 1))
-            S.erase(num - 1);
-        else if (S.count(num + 1))
-            S.erase(num + 1);
+        X.insert(num);
     }
+    for (auto i : S)
+    {
+        if (X.count(i))
+        {
+            X.erase(i);
+            v.push_back(i);
+        }
+    }
+    for (int i = 0; i < v.size(); i++)
+        S.erase(v[i]);
+    v.clear();
+    for (auto i : S)
+    {
+        if (X.count(i - 1))
+        {
+            X.erase(i - 1);
+            v.push_back(i);
+        }
+        else if (X.count(i + 1))
+        {
+            X.erase(i + 1);
+            v.push_back(i);
+        }
+    }
+    for (int i = 0; i < v.size(); i++)
+        S.erase(v[i]);
     cout << S.size();
 }
