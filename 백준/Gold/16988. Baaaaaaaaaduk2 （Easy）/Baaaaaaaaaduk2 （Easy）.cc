@@ -18,9 +18,9 @@
 #define int long long
 #define pi pair<int,int>
 using namespace std;
-int arr[1023][1023] = { 0 };
+int arr[23][23] = { 0 };
 int dx[4] = { 1,-1,0,0 }, dy[4] = { 0,0,1,-1 };
-bool visit[1023][1023] = { 0 };
+bool visit[23][23] = { 0 };
 int n, m, ans = 0;
 signed main()
 {
