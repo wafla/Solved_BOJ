@@ -19,6 +19,7 @@
 #define pi pair<int,int>
 using namespace std;
 char arr[27][27] = { 0 };
+int x = 0, y = 0, sum = 0, r, c;
 struct point {
 	int up = 0;
 	int down = 0;
@@ -26,16 +27,29 @@ struct point {
 	int left = 0;
 };
 point points[27][27];
+void check()
+{
+	for (int i = 0; i < r; i++)
+	{
+		for (int j = 0; j < c; j++)
+		{
+			if (points[i][j].up + points[i][j].down + points[i][j].left + points[i][j].right > sum)
+			{
+				sum = points[i][j].up + points[i][j].down + points[i][j].left + points[i][j].right;
+				x = i;
+				y = j;
+			}
+		}
+	}
+}
 signed main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL), cout.tie(NULL);
-	int r, c;
 	cin >> r >> c;
 	for (int i = 0; i < r; i++)
 		for (int j = 0; j < c; j++)
 			cin >> arr[i][j];
-	int m_flag = 0, z_flag = 0;
 	for (int i = 0; i < r; i++)
 	{
 		for (int j = 0; j < c; j++)
@@ -95,19 +109,7 @@ signed main()
 			}
 		}
 	}
-	int x = 0, y = 0, sum = 0;
-	for (int i = 0; i < r; i++)
-	{
-		for (int j = 0; j < c; j++)
-		{
-			if (points[i][j].up + points[i][j].down + points[i][j].left + points[i][j].right > sum)
-			{
-				sum = points[i][j].up + points[i][j].down + points[i][j].left + points[i][j].right;
-				x = i;
-				y = j;
-			}
-		}
-	}
+	check();
 	if (sum == 0)
 	{
 		for (int i = 0; i < r; i++)
@@ -138,18 +140,7 @@ signed main()
 				}
 			}
 		}
-		for (int i = 0; i < r; i++)
-		{
-			for (int j = 0; j < c; j++)
-			{
-				if (points[i][j].up + points[i][j].down + points[i][j].left + points[i][j].right > sum)
-				{
-					sum = points[i][j].up + points[i][j].down + points[i][j].left + points[i][j].right;
-					x = i;
-					y = j;
-				}
-			}
-		}
+		check();
 	}
 	cout << x + 1 << " " << y + 1 << " ";
 	if (points[x][y].up == 1 && points[x][y].down == 1 && points[x][y].left == 1 && points[x][y].right == 1)
