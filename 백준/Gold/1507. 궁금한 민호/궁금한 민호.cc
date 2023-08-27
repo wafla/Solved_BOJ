@@ -23,8 +23,7 @@ signed main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL), cout.tie(NULL);
-	map<pi, int> M;
-	int n;
+	int n, flag = 0;
 	cin >> n;
 	for (int i = 0; i < n; i++)
 	{
@@ -35,7 +34,6 @@ signed main()
 		}
 	}
 
-	int flag = 0;
 	for (int k = 0; k < n; k++)
 	{
 		for (int i = 0; i < n; i++)
