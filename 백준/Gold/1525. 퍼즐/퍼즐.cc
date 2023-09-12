@@ -17,10 +17,10 @@
 #define ll long long
 #define int long long
 #define pi pair<int,int>
-#define T pair<int, pair<vector<int>, int>>
+#define T pair<int, pair<string, int>>
 using namespace std;
-set<vector<int>> S;
-int check(vector<int> v)
+set<string> S;
+int check(string v)
 {
 	int flag = 0;
 	flag = S.count(v) ? 1 : 0;
@@ -31,13 +31,15 @@ signed main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL), cout.tie(NULL);
-	vector<int> tmp(9), num = { 1,2,3,4,5,6,7,8,0 };
+	string tmp, num = "123456780";
 	int idx = 0;
 	for (int i = 0; i < 9; i++)
 	{
-		cin >> tmp[i];
-		if (tmp[i] == 0)
+		int x;
+		cin >> x;
+		if (x == 0)
 			idx = i;
+		tmp.push_back(x + 48);
 	}
 	check(tmp);
 	priority_queue<T,vector<T>,greater<T>> Q;
@@ -57,8 +59,8 @@ signed main()
 			int x1 = x - 3, x2 = x + 1, x3 = x + 3;
 			if (x1 > -1)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x1];
 				tmp_[x1] = tmp_x;
 				if (!check(tmp_))
@@ -66,8 +68,8 @@ signed main()
 			}
 			if (x2 < 9)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x2];
 				tmp_[x2] = tmp_x;
 				if (!check(tmp_))
@@ -75,8 +77,8 @@ signed main()
 			}
 			if (x3 < 9)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x3];
 				tmp_[x3] = tmp_x;
 				if (!check(tmp_))
@@ -88,8 +90,8 @@ signed main()
 			int x1 = x - 3, x2 = x - 1, x3 = x + 1, x4 = x + 3;
 			if (x1 > -1)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x1];
 				tmp_[x1] = tmp_x;
 				if (!check(tmp_))
@@ -97,8 +99,8 @@ signed main()
 			}
 			if (x2 > -1)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x2];
 				tmp_[x2] = tmp_x;
 				if (!check(tmp_))
@@ -106,8 +108,8 @@ signed main()
 			}
 			if (x3 < 9)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x3];
 				tmp_[x3] = tmp_x;
 				if (!check(tmp_))
@@ -115,8 +117,8 @@ signed main()
 			}
 			if (x4 < 9)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x4];
 				tmp_[x4] = tmp_x;
 				if (!check(tmp_))
@@ -128,8 +130,8 @@ signed main()
 			int x1 = x - 3, x2 = x - 1, x3 = x + 3;
 			if (x1 > -1)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x1];
 				tmp_[x1] = tmp_x;
 				if (!check(tmp_))
@@ -137,8 +139,8 @@ signed main()
 			}
 			if (x2 > -1)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x2];
 				tmp_[x2] = tmp_x;
 				if (!check(tmp_))
@@ -146,8 +148,8 @@ signed main()
 			}
 			if (x3 < 9)
 			{
-				vector<int> tmp_ = cur.Y.X;
-				int tmp_x = tmp_[x];
+				string tmp_ = cur.Y.X;
+				char tmp_x = tmp_[x];
 				tmp_[x] = tmp_[x3];
 				tmp_[x3] = tmp_x;
 				if (!check(tmp_))
