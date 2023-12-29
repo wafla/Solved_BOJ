@@ -32,10 +32,9 @@ signed main()
 	cin >> n >> m;
 	int u, l, r, d;
 	cin >> u >> l >> r >> d;
-	int x = u, y = l;
 
-	for (int i = x; i < x + n; i++)
-		for (int j = y; j < y + m; j++)
+	for (int i = u; i < u + n; i++)
+		for (int j = l; j < l + m; j++)
 			cin >> arr[i][j];
 
 	for (int i = 0; i < n + u + d; i++)
