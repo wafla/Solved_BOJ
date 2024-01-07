@@ -1,92 +1,57 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-
-typedef struct Study
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+#include <string>
+#include <deque>
+#include <cmath>
+#include <memory.h>
+#include <stack>
+#include <map>
+#include <set>
+#include <numeric>
+#define X first
+#define Y second
+#define INF 0x3f3f3f3f
+#define MOD 998244353
+#define ll long long
+#define int long long
+#define pi pair<int,int>
+#define T pair<int, pi>
+using namespace std;
+bool cmp(string a, string b)
 {
-	char name[101];
-	int BJ;
-	int BJnum;
-}Study;
-
-int compare(const void* num1, const void* num2)
-{
-	return ((Study*)num1)->BJ - ((Study*)num2)->BJ;
+	if (a.size() == b.size())
+		return a < b;
+	return a.size() < b.size();
 }
-
-int compare0(const void* num1, const void* num2)
+signed main()
 {
-	if (strlen(((Study*)num1)->name) == strlen(((Study*)num2)->name))
+	ios::sync_with_stdio(false);
+	cin.tie(NULL), cout.tie(NULL);
+	int n;
+	cin >> n;
+	cin.ignore();
+	vector<string> v1;
+	vector<string> v2;
+	for (int i = 0; i < n; i++)
 	{
-		return strcmp(((Study*)num1)->name, ((Study*)num2)->name);
-	}
-	else
-	{
-		return strlen(((Study*)num1)->name) - strlen(((Study*)num2)->name);
-	}
-}
-
-int compare1(const void* num1, const void* num2)
-{
-	return ((Study*)num1)->BJnum - ((Study*)num2)->BJnum;
-}
-int main(void)
-{
-	int num = 0, count0 = 0, count1 = 0;
-	scanf("%d", &num);
-	getchar();
-	Study* ary = (Study*)malloc(sizeof(Study) * (num + 1));
-	for (int i = 0; i < num; i++)
-	{
-		fgets(ary[i].name, 102, stdin);
-		ary[i].name[strcspn(ary[i].name, "\n")] = '\0';
-		ary[i].BJ = 0; ary[i].BJnum = 0;
-		if (strncmp(ary[i].name, "boj.kr/", 7) == 0)
+		string s;
+		getline(cin, s);
+		if (s.size() > 7)
 		{
-			int count = 0;
-			for (int j = 7; ary[i].name[j] != '\0'; j++)
-			{
-				if (!isdigit((unsigned char)ary[i].name[j]))
-				{
-					count++;
-					break;
-				}
-			}
-			if (count == 0)
-			{
-				if (atoi(ary[i].name + 7) >= 1 && atoi(ary[i].name + 7) <= 30000)
-				{
-					ary[i].BJ = 1;
-					ary[i].BJnum = atoi(ary[i].name + 7);
-				}
-				else
-				{
-					ary[i].BJ = 0;
-				}
-			}
+			if (s.substr(0, 7) == "boj.kr/")
+				v2.push_back(s);
 			else
-			{
-				ary[i].BJ = 0;
-			}
+				v1.push_back(s);
 		}
-		if (ary[i].BJ == 0)
-		{
-			count0++;
-		}
-		else if (ary[i].BJ == 1)
-		{
-			count1++;
-		}
+		else
+			v1.push_back(s);
 	}
-	qsort(ary, num, sizeof(Study), compare);
-	qsort(ary, count0, sizeof(Study), compare0);
-	qsort(ary + count0, count1, sizeof(Study), compare1);
-	for (int i = 0; i < num; i++)
-	{
-		printf("%s\n", ary[i].name);
-	}
-	free(ary);
+	sort(v1.begin(), v1.end(), cmp);
+	sort(v2.begin(), v2.end(), cmp);
+	for (auto i : v1)
+		cout << i << '\n';
+	for (auto i : v2)
+		cout << i << '\n';
 }
-// 제출번호 71303663 테스트
