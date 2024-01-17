@@ -41,11 +41,9 @@ signed main()
 	cin >> n;
 	prime[1] = 1;
 	for (int i = 2; i <= maxx; i++)
-	{
 		if (!prime[i])
 			for (int j = 2; i * j <= maxx; j++)
 				prime[i * j] = 1;
-	}
 	for (int i = n; i <= maxx; i++)
 		if (!prime[i] && check(i))
 		{
