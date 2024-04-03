@@ -55,6 +55,7 @@ signed main()
 	}
 	for (int i = 1; i <= n; i++)
 	{
+        p[i] = i;
 		int x;
 		cin >> x;
 		S[i].insert(x);
@@ -67,13 +68,9 @@ signed main()
 		cin >> x >> y;
 		arr.push_back({ x,y });
 	}
-	reverse(arr.begin(), arr.end());
-	
-	for (int i = 1; i <= n; i++)
-		p[i] = i;
 
 	vector<int> ans;
-	for (int i = 0; i < n - 1 + m; i++)
+	for (int i = arr.size() - 1; i >= 0; i--)
 	{
 		if (arr[i].X == 1)
 			merge(arr[i].Y, v[arr[i].Y]);
@@ -81,7 +78,6 @@ signed main()
 			ans.push_back(S[find(arr[i].Y)].size());
 	}
 
-	reverse(ans.begin(), ans.end());
-	for (auto i : ans)
-		cout << i << '\n';
+	for (int i = ans.size() - 1; i >= 0; i--)
+        cout << ans[i] << '\n';
 }
