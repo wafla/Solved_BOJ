@@ -36,34 +36,23 @@ signed main()
 		auto cur = st.top();
 		st.pop();
 		if (cur.X == 'x')
-		{
 			tmp.push(cur);
-		}
 		else if (cur.X == 'g')
 		{
 			if (!tmp.size())
-			{
-				cout << -1 << '\n';
-				return 0;
-			}
+				break;
 
 			auto cur2 = tmp.top();
 			tmp.pop();
 			if (cur2.X == 'x')
 				tmp.push({ 'x', 1 + cur2.Y });
 			else
-			{
-				cout << -1 << '\n';
-				return 0;
-			}
+				break;
 		}
 		else if (cur.X == 'f')
 		{
 			if (tmp.size() < 2)
-			{
-				cout << -1 << '\n';
-				return 0;
-			}
+				break;
 			auto cur3 = tmp.top();
 			tmp.pop();
 			auto cur4 = tmp.top();
@@ -71,14 +60,11 @@ signed main()
 			if (cur3.X == 'x' && cur4.X == 'x')
 				tmp.push({ 'x', min(cur3.Y, cur4.Y) });
 			else
-			{
-				cout << -1 << '\n';
-				return 0;
-			}
+				break;
 		}
 	}
 
-	if (tmp.size() > 1)
+	if (tmp.size() > 1 || tmp.size() == 0 || st.size() > 0)
 		cout << -1 << '\n';
 	else
 		cout << tmp.top().Y << '\n';
