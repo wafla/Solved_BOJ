@@ -40,7 +40,6 @@ signed main()
 
     int L1, L2;
     cin >> L1 >> L2;
-    int ans = 0;
     priority_queue<pi, vector<pi>, greater<pi>> PQ;
     PQ.push({ L1, INF });
     while (PQ.size())
