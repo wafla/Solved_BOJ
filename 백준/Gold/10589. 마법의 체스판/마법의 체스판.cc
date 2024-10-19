@@ -26,20 +26,14 @@ signed main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL), cout.tie(NULL);
-	int n, m, k = 0;
+	int n, m;
 	cin >> n >> m;
 	vector<T> ans;
 	for (int i = 2; i <= n; i += 2)
-	{
-		k++;
 		ans.push_back({ i,1,i,m });
-	}
 	for (int j = 2; j <= m; j += 2)
-	{
-		k++;
 		ans.push_back({ 1,j,n,j });
-	}
-	cout << k << '\n';
+	cout << ans.size() << '\n';
 	for (auto &i : ans)
 		cout << i.a << " " << i.b << " " << i.c << " " << i.d << '\n';
 }
