@@ -15,7 +15,7 @@ vector<string> solution(vector<string> record) {
     {
         string s = record[i];
         stringstream ss(s);
-        string action, tmp, id, name;
+        string action, id, name;
         ss >> action >> id >> name;
         if(action=="Enter")
         { 
