@@ -4,7 +4,7 @@
 #define X first
 #define Y second
 #define pi pair<int,int>
-#define T pair<pi, int>
+#define T pair<pi, pi>
 using namespace std;
 int arr[26][26]={0};
 int dx[4]={1,0,-1,0};
@@ -15,16 +15,19 @@ int solution(vector<vector<int>> board) {
         for(int j=0;j<n;j++)
             arr[i][j] = 987654321;
     arr[0][0] = 0;
-    queue<T> Q; // 좌표, 방향
-    Q.push({{0, 0}, 0});
-    Q.push({{0, 0}, 1});
-    while(!Q.empty())
+    priority_queue<T, vector<T>, greater<T>> PQ; // 비용, 방향, 좌표
+    PQ.push({{0,0}, {0,0}});
+    PQ.push({{0,1}, {0,0}});
+    while(!PQ.empty())
     {
-        auto cur = Q.front();
-        Q.pop();
-        int x = cur.X.X;
-        int y = cur.X.Y;
-        int dir = cur.Y;
+        auto cur = PQ.top();
+        PQ.pop();
+        int w = cur.X.X;
+        int dir = cur.X.Y;
+        int x = cur.Y.X;
+        int y = cur.Y.Y;
+        if(x==n-1 && y==n-1)
+            continue;
         for(int k=0;k<4;k++)
         {
             for(int cnt=1;;cnt++)
@@ -33,15 +36,15 @@ int solution(vector<vector<int>> board) {
                 int ny = y + dy[k] * cnt;
                 if(nx < 0 || nx >= n || ny < 0 || ny >= n || board[nx][ny]==1)
                     break;
-                int nw = 0;
+                int nw = w;
                 if(dir == k)
                     nw += 100 * cnt;
                 else
                     nw += 500 + 100 * cnt;
-                if(arr[nx][ny] > arr[x][y] + nw)
+                if(arr[nx][ny] > nw)
                 {
-                    arr[nx][ny] = arr[x][y] + nw;
-                    Q.push({{nx,ny},k});
+                    arr[nx][ny] = nw;
+                    PQ.push({{nw,k},{nx,ny}});
                 }
             }
         }
