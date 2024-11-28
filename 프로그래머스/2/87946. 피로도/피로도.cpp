@@ -23,16 +23,6 @@ void dfs(int k, int idx, int cnt)
 }
 int solution(int k, vector<vector<int>> dungeons) {
     v = dungeons;
-    for(int i=0;i<dungeons.size();i++)
-    {
-        int a = dungeons[i][0];
-        int b = dungeons[i][1];
-        if(k >= a)
-        {
-            visited[i]=true;
-            dfs(k-b,i,1);
-            visited[i]=false;
-        }
-    }
+    dfs(k,-1,0);
     return ans;
 }
