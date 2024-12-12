@@ -2,7 +2,6 @@
 #include <vector>
 
 using namespace std;
-int dp[501][10000]={0};
 int solution(vector<vector<int>> triangle) {
     int answer = 0;
     vector<vector<int>> dp = triangle;
