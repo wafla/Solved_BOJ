@@ -5,8 +5,8 @@
 #include <iostream>
 using namespace std;
 vector<vector<int>> v;
-set<int> s1, s2;
-void dfs1(int x)
+set<int> s1;
+void dfs(int x)
 {
     for(int i=0;i<v[x].size();i++)
     {
@@ -14,26 +14,16 @@ void dfs1(int x)
         if(!s1.count(nx))
         {
             s1.insert(nx);
-            dfs1(nx);
-        }
-    }
-}
-void dfs2(int x)
-{
-    for(int i=0;i<v[x].size();i++)
-    {
-        int nx = v[x][i];
-        if(!s2.count(nx))
-        {
-            s2.insert(nx);
-            dfs2(nx);
+            dfs(nx);
         }
     }
 }
 int solution(int n, vector<vector<int>> wires) {
     int answer = 987654321;
+    int s2;
     for(int i=0;i<wires.size();i++)
     {
+        s2 = 0;
         v.clear();
         v.resize(n+1);
         for(int j=0;j<wires.size();j++)
@@ -46,26 +36,17 @@ int solution(int n, vector<vector<int>> wires) {
             v[y].push_back(x);
         }
         s1.clear();
-        s2.clear();
         for(int j=1;j<=n;j++)
         {
             if(!s1.count(j))
             {
                 s1.insert(j);
-                dfs1(j);
+                dfs(j);
                 break;
             }
         }
-        for(int j=1;j<=n;j++)
-        {
-            if(!s1.count(j))
-            {
-                s2.insert(j);
-                dfs2(j);
-                break;
-            }
-        }
-        answer = min(answer,abs(int(s1.size())-int(s2.size())));
+        s2 = n - s1.size();
+        answer = min(answer,abs(int(s1.size())-s2));
     }
     return answer;
 }
