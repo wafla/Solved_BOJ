@@ -28,15 +28,15 @@ vector<vector<int>> v(MAX_NUM);
 int odd[N][N] = { 0 };
 int even[N][N] = { 0 };
 int R[MAX_NUM] = { 0 };
-int dx[6] = {-1,0,1,-1,0,1};
-int dy[6] = {-1,-1,-1,1,1,1};
+int dx[6] = { -1,0,1,-1,0,1 };
+int dy[6] = { -1,-1,-1,1,1,1 };
 bool visited[MAX_NUM] = { 0 };
 
 bool dfs(int from) {
 	if (visited[from])
 		return false;
 	visited[from] = true;
-	
+
 	for (int i = 0; i < v[from].size(); i++) {
 		int to = v[from][i];
 		if (R[to] == 0 || dfs(R[to])) {
@@ -47,10 +47,10 @@ bool dfs(int from) {
 	return false;
 }
 
-signed main(){
+signed main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL), cout.tie(NULL);
-	
+
 	int t;
 	cin >> t;
 	while (t--) {
@@ -76,7 +76,7 @@ signed main(){
 				}
 			}
 		}
-		
+
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				if (str[i][j] == '.') {
@@ -88,16 +88,13 @@ signed main(){
 						if (j % 2) {
 							v[even[nx][ny]].push_back(odd[i][j]);
 						}
-						else {
-							v[odd[nx][ny]].push_back(even[i][j]);
-						}
 					}
 				}
 			}
 		}
 
 		int ans = 0;
-		for (int i = 0; i < n;i++) {
+		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j += 2) {
 				memset(visited, 0, sizeof(visited));
 				if (str[i][j] == '.' && dfs(even[i][j]))
