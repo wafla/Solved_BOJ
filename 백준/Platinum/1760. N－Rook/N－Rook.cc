@@ -112,5 +112,5 @@ signed main() {
 		if (dfs(i))
 			ans++;
 	}
-	cout << ans << '\n'; " ";
+	cout << ans << '\n';
 }
