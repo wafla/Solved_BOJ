@@ -19,8 +19,8 @@
 #define int long long
 #define pi pair<int,int>
 #define T pair<pi,pi>
-#define MAX_NUM 100001
-#define N 51
+#define MAX_NUM 2001
+#define N 21
 using namespace std;
 int dp[N][MAX_NUM] = { 0 };
 
