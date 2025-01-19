@@ -81,6 +81,8 @@ signed main() {
 				break;
 			dp[num][1] = max(dp[num][1], dp[num - tmp][0] + v[i].X);
 		}
+		if (tmp >= k)
+			continue;
 		dp[tmp][1] = max(dp[tmp][1], v[i].X);
 
 		for (int j = 1; j < k; j++) {
